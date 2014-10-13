@@ -5,7 +5,7 @@ FizzBuzz := Object clone
 FizzBuzz divisibleByThree := method(number, number%3)
 FizzBuzz divisibleByFive := method(number, number%5)
 FizzBuzz divisibleByFifteen := method(number, number%15)
-FizzBuzz game := method(number, if(divisibleByThree(number)==0, "FIZZ" println, if(divisibleByFive(number)==0, "BUZZ" println, number)))
+FizzBuzz game := method(number, if(divisibleByFifteen(number)==0, "FIZZBUZZ" println, if(divisibleByThree(number)==0, "FIZZ" println, if(divisibleByFive(number)==0, "BUZZ" println, number println))))
 
 
 "It should know a number is divisible by 3" println
@@ -35,7 +35,12 @@ assertEquals (FizzBuzz game(3), "FIZZ")
 "It should print BUZZ if it is divisible by 5" println
 assertEquals (FizzBuzz game(5), "BUZZ")
 
+"It should print FIZZBUZZ if it is divisible by 15" println
+assertEquals (FizzBuzz game(15), "FIZZBUZZ")
 
+
+
+for(i, 1, 25, FizzBuzz game(i))
 
 
 
